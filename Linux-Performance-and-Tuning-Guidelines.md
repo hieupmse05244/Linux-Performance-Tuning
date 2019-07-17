@@ -31,7 +31,8 @@ Một process là một biểu diễn (instance) của quá trình thực thi (e
 
 Tất cả process chạy trên Linux OS đều được quản lý bởi cấu trúc **tast_struct**, nó được gọi là process descriptor (mô tả tiến trình). Một process descriptor chứa tất cả thông tin cần cho một single process (đơn tiến trình) có thể chạy, ví dụ như định danh (process id) các thuộc tính và tài nguyên xây dựng (construct) process. Hiểu cấu trúc của process giúp ta có thể hiểu điều gì là quan trọng cho việc thực thi  và hiệu suất của process.  Hình 1-2 cho thấy phác thảo của các cấu trúc liên quan đến thông tin process.
 
-"Hình 1-2"
+!["Hình 1-2"](https://github.com/hieupmse05244/Linux-Performance-Tuning/blob/master/images/1-2.PNG)
+
 <a name='1.1.2'></a>
 ### 1.1.2 - Vòng đời của một tiến trình
 
@@ -39,7 +40,7 @@ Mọi process đều có vòng đời của riêng nó, bao gồm khởi tạo (
 
 Hình 1-3 cho thấy vòng đời điển hình của các process
 
-"Hình 1-3"
+!["Hình 1-3"](https://github.com/hieupmse05244/Linux-Performance-Tuning/blob/master/images/1-3.PNG)
 
 Khi một process tạo ra một process mới, process cha sẽ cung cấp một lời gọi hệ thống (system call) **fork()**. Khi lời gọi hệ thống **fork()** được cung cấp, nó lấy ra một mô tả tiến trình (process descriptor) cho tiến trình con và đặt một định danh (process id). Nó copy giá trị mô tả tiến trình của process cha cho mô tả tiến trính của process con. Vào lúc này, toàn bộ không gian địa chỉ của process cha chưa được copy, cả 2 process chia sẻ cùng một không gian địa chỉ.
 
@@ -58,7 +59,7 @@ Một thread (luồng) là một khối thực thi (execution unit) được t�
 
 Đứng trên quan điểm hiệu suất, việc tạo ra thread có chi phí thấp hơn việc tạo ra process vì một thread không cần sao chép tài nguyên khi tạo. Mặt khác, các process và thread có cùng các đặc điểm về mặt thuật toán lập lịch (scheduling algorithm). Kernel làm việc với cả hai theo cách tương tự.
 
-"Hình 1-4"
+!["Hình 1-4"](https://github.com/hieupmse05244/Linux-Performance-Tuning/blob/master/images/1-4.PNG)
 
 Trong các bản thực thi của Linux hiện hành, một thread được hỗ trợ Giao diện hệ điều hành di động cho thư viện tương thích UNIX (Portable Operating System Interface for UNIX compliant library) - pthread. Một số triển khai thread có sẵn trong Linux. Sau đây là những bản được sử dụng rộng rãi:
 
@@ -96,7 +97,7 @@ Có quá nhiều context switching là điều không mong muốn vì processor 
 
 Hình 1-5 minh họa cách context switching hoạt động
 
-"Hình 1-5"
+!["Hình 1-5"](https://github.com/hieupmse05244/Linux-Performance-Tuning/blob/master/images/1-5.PNG)
 
 <a name='1.1.6'></a>
 ### 1.1.6 - Xử lý ngắt
@@ -139,7 +140,7 @@ Mỗi process có trạng thái riêng của nó, nó show ra chuyện gì đang
 
     Sau khi một process bị chấm dứt bởi lời gọi hệ thống **exit()**, process cha của nó không biết về việc chấm dứt này. Ở trạng thái này, nó đợi cho tới khi process cha được thông báo và sau đó giải phóng tất cả cấu trúc dữ liệu.
 
-"Hình 1-6"
+!["Hình 1-6"](https://github.com/hieupmse05244/Linux-Performance-Tuning/blob/master/images/1-6.PNG)
 
 <a name="zombie_process"></a>
 #### Zombie process
