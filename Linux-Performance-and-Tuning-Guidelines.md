@@ -1,0 +1,11 @@
+1. Hiểu về hệ điều hành Linux
+    - 1.1 - Quản lý tiến trình Linux
+        - 1.1.1 - Process (tiến trình) là gì?
+        - 1.1.2 - Vòng đời (Life cycle) của một process
+        - 1.1.3 - Thread (Luồng)
+        - 1.1.4 - Ưu tiên tiến trình và nice level
+        - 1.1.5 - Context switching (Chuyển đổi ngữ cảnh)
+        - 1.1.6 - Xử lý ngắt
+        - 1.1.7 - Trạng thái của process
+        - 1.1.8 - Process memory segments
+        - 1.1.9 - Linux CPU scheduler
